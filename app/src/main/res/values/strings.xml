@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">HanIN Round 3</string>
+    <string name="image">Image</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_you_password">Forget you password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="or">or</string>
+    <string name="facebook">Facebook</string>
+    <string name="google">Google</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign up</string>
+</resources>
