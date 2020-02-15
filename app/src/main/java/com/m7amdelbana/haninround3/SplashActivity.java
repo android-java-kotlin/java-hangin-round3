@@ -17,12 +17,7 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                navigateToMain();
-            }
-        }, 3000);
+        new Handler().postDelayed(this::navigateToMain, 3000);
 
     }
 
