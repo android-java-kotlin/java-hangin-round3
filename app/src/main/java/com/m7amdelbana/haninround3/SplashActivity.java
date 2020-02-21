@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.m7amdelbana.haninround3.main.MainActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     @Override
@@ -22,6 +24,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     void navigateToMain() {
-        startActivity(new Intent(this, SignInActivity.class));
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
