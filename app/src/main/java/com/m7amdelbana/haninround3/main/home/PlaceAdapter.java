@@ -16,18 +16,17 @@ import java.util.List;
 public class PlaceAdapter extends RecyclerView.Adapter<PlaceHolder> {
 
     private List<Place> places;
-    private Context context;
+    private PlaceItemClick placeItemClick;
 
-    public PlaceAdapter(List<Place> places, Context context) {
+    public PlaceAdapter(List<Place> places, PlaceItemClick placeItemClick) {
         this.places = places;
-        this.context = context;
+        this.placeItemClick = placeItemClick;
     }
 
     @NonNull
     @Override
     public PlaceHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_working_place, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_working_place, parent, false);
         return new PlaceHolder(v);
     }
 
@@ -35,6 +34,13 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceHolder> {
     public void onBindViewHolder(@NonNull PlaceHolder holder, int position) {
         Place place = places.get(position);
         holder.bindView(place);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                placeItemClick.onItemClicked(position);
+            }
+        });
     }
 
     @Override

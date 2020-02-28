@@ -2,6 +2,9 @@ package com.m7amdelbana.haninround3.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
@@ -12,7 +15,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.m7amdelbana.haninround3.R;
 import com.m7amdelbana.haninround3.main.home.HomeFragment;
 
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity
+        // implements BottomNavigationView.OnNavigationItemSelectedListener
+{
 
     BottomNavigationView bottomNavigationView;
 
@@ -21,37 +26,39 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
-        openFragment(new HomeFragment());
+        // openFragment(new HomeFragment());
     }
 
     void initUI() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        // bottomNavigationView.setOnNavigationItemSelectedListener(this);
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
     }
 
-    void openFragment(Fragment fragment) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.main_frameLayout, fragment);
-        transaction.commit();
-    }
+//    void openFragment(Fragment fragment) {
+//        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+//        transaction.replace(R.id.main_frameLayout, fragment);
+//        transaction.commit();
+//    }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_home:
-                openFragment(new HomeFragment());
-                break;
-            case R.id.nav_booking:
-                openFragment(new BookingsFragment());
-                break;
-            case R.id.nav_nearby:
-                openFragment(new NearbyFragment());
-                break;
-            case R.id.nav_more:
-                openFragment(new MoreFragment());
-                break;
-        }
-
-        return true;
-    }
+//    @Override
+//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.nav_home:
+//                openFragment(new HomeFragment());
+//                break;
+//            case R.id.nav_booking:
+//                openFragment(new BookingsFragment());
+//                break;
+//            case R.id.nav_nearby:
+//                openFragment(new NearbyFragment());
+//                break;
+//            case R.id.nav_more:
+//                openFragment(new MoreFragment());
+//                break;
+//        }
+//
+//        return true;
+//    }
 }

@@ -31,7 +31,13 @@ public class PlaceHolder extends RecyclerView.ViewHolder {
     }
 
     void bindView(Place place) {
-        // imageView
+//        Picasso.get()
+//                .load(place.getImage())
+//                .placeholder(R.drawable.appicon)
+//                .error(R.drawable.appicon)
+//                .into(imageView);
+
+        place.loadImage(imageView);
         tvTitle.setText(place.getName());
         tvAddress.setText(place.getAddress());
         ratingBar.setRating(place.getRating());

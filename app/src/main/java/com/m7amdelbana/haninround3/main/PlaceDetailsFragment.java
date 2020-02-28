@@ -2,26 +2,22 @@ package com.m7amdelbana.haninround3.main;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.fragment.app.Fragment;
-
 import com.m7amdelbana.haninround3.R;
 
-public class BookingsFragment extends Fragment {
+public class PlaceDetailsFragment extends Fragment {
 
+    public PlaceDetailsFragment() {
 
-    public BookingsFragment() {
-        // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bookings, container, false);
+        return inflater.inflate(R.layout.fragment_place_details, container, false);
     }
-
 }

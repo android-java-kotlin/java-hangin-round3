@@ -1,5 +1,10 @@
 package com.m7amdelbana.haninround3.models;
 
+import android.widget.ImageView;
+
+import com.m7amdelbana.haninround3.R;
+import com.squareup.picasso.Picasso;
+
 public class Place {
 
     private String image;
@@ -44,5 +49,13 @@ public class Place {
 
     public void setRating(float rating) {
         this.rating = rating;
+    }
+
+    public void loadImage(ImageView imageView) {
+        Picasso.get()
+                .load(getImage())
+                .placeholder(R.drawable.appicon)
+                .error(R.drawable.appicon)
+                .into(imageView);
     }
 }
