@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.m7amdelbana.haninround3.R;
-import com.m7amdelbana.haninround3.models.Place;
+import com.m7amdelbana.haninround3.network.models.Place;
 
 public class PlaceHolder extends RecyclerView.ViewHolder {
 
@@ -40,6 +40,6 @@ public class PlaceHolder extends RecyclerView.ViewHolder {
         place.loadImage(imageView);
         tvTitle.setText(place.getName());
         tvAddress.setText(place.getAddress());
-        ratingBar.setRating(place.getRating());
+        // ratingBar.setRating(place.getRating());
     }
 }
