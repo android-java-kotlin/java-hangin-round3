@@ -8,7 +8,6 @@ import android.os.Handler;
 
 import com.m7amdelbana.haninround3.R;
 import com.m7amdelbana.haninround3.ui.auth.SignInActivity;
-import com.m7amdelbana.haninround3.ui.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,7 +21,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         new Handler().postDelayed(this::navigateToMain, 3000);
-
     }
 
     void navigateToMain() {

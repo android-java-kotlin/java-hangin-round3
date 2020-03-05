@@ -17,10 +17,13 @@
         android:usesCleartextTraffic="false"
         tools:ignore="GoogleAppIndexingWarning,UnusedAttribute">
         <activity
-            android:name="com.m7amdelbana.haninround3.ui.auth.SignInActivity"
+            android:name=".ui.auth.SignUpActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.m7amdelbana.haninround3.ui.splash.SplashActivity"
+            android:name=".ui.auth.SignInActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

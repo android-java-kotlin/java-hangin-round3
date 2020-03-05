@@ -14,6 +14,16 @@
             android:layout_height="wrap_content">
 
             <ImageView
+                android:id="@+id/toolbar_back_imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/image"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back" />
+
+            <ImageView
                 android:id="@+id/SignIn_logo_imageView"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
