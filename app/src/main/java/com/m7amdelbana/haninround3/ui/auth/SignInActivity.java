@@ -1,19 +1,17 @@
-package com.m7amdelbana.haninround3;
+package com.m7amdelbana.haninround3.ui.auth;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.m7amdelbana.haninround3.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class SignInActivity extends AppCompatActivity {
-
 
     @BindView(R.id.signIn_email_editText)
     EditText edtEmail;

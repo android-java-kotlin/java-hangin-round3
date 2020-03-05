@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.m7amdelbana.haninround3.main.home.HomeFragment"
+        android:name="com.m7amdelbana.haninround3.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,22 +16,22 @@
     </fragment>
     <fragment
         android:id="@+id/bookingsFragment"
-        android:name="com.m7amdelbana.haninround3.main.BookingsFragment"
+        android:name="com.m7amdelbana.haninround3.ui.bookings.BookingsFragment"
         android:label="fragment_bookings"
         tools:layout="@layout/fragment_bookings"/>
     <fragment
         android:id="@+id/nearbyFragment"
-        android:name="com.m7amdelbana.haninround3.main.NearbyFragment"
+        android:name="com.m7amdelbana.haninround3.ui.nearby.NearbyFragment"
         android:label="fragment_nearby"
         tools:layout="@layout/fragment_nearby" />
     <fragment
         android:id="@+id/moreFragment"
-        android:name="com.m7amdelbana.haninround3.main.MoreFragment"
+        android:name="com.m7amdelbana.haninround3.ui.more.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
     <fragment
         android:id="@+id/placeDetailsFragment"
-        android:name="com.m7amdelbana.haninround3.main.PlaceDetailsFragment"
+        android:name="com.m7amdelbana.haninround3.ui.placeDetails.PlaceDetailsFragment"
         android:label="fragment_place_details"
         tools:layout="@layout/fragment_place_details" />
 </navigation>

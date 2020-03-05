@@ -1,4 +1,4 @@
-package com.m7amdelbana.haninround3.main.home;
+package com.m7amdelbana.haninround3.ui.home;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -40,6 +40,6 @@ public class PlaceHolder extends RecyclerView.ViewHolder {
         place.loadImage(imageView);
         tvTitle.setText(place.getName());
         tvAddress.setText(place.getAddress());
-        // ratingBar.setRating(place.getRating());
+        ratingBar.setRating(place.getRating());
     }
 }

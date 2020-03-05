@@ -1,4 +1,4 @@
-package com.m7amdelbana.haninround3.main.home;
+package com.m7amdelbana.haninround3.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,7 +21,6 @@ import com.m7amdelbana.haninround3.network.services.PlacesService;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -34,7 +33,7 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
     private NavController navController;
 
     public HomeFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -88,9 +87,10 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
                     Toast.makeText(getActivity(), "Fail", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(@NotNull Call<List<Place>> call, @NotNull Throwable t) {
-                Toast.makeText(getActivity(), "Service Error!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Service Error: " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }

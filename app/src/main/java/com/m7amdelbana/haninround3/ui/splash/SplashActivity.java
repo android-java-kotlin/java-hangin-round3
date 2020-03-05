@@ -1,4 +1,4 @@
-package com.m7amdelbana.haninround3;
+package com.m7amdelbana.haninround3.ui.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,7 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.m7amdelbana.haninround3.main.MainActivity;
+import com.m7amdelbana.haninround3.R;
+import com.m7amdelbana.haninround3.ui.auth.SignInActivity;
+import com.m7amdelbana.haninround3.ui.main.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -24,6 +26,6 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     void navigateToMain() {
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, SignInActivity.class));
     }
 }

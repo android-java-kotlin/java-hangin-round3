@@ -16,17 +16,40 @@ public class Place implements Serializable {
     @SerializedName("image")
     private String image;
 
+    @SerializedName("coverImage")
     private String coverImage;
+
+    @SerializedName("rating")
     private float rating;
+
+    @SerializedName("totalRating")
     private int totalRating;
+
+    @SerializedName("isActive")
     private boolean isActive;
+
+    @SerializedName("name")
     private String name;
+
+    @SerializedName("phone")
     private String phone;
+
+    @SerializedName("address")
     private String address;
+
+    @SerializedName("lat")
     private double lat;
+
+    @SerializedName("lng")
     private double lng;
+
+    @SerializedName("hourPrice")
     private double hourPrice;
+
+    @SerializedName("dayPrice")
     private double dayPrice;
+
+    @SerializedName("capacity")
     private int capacity;
 
     public String getId() {
@@ -144,8 +167,8 @@ public class Place implements Serializable {
     public void loadImage(ImageView imageView) {
         Picasso.get()
                 .load(getImage())
-                .placeholder(R.drawable.appicon)
-                .error(R.drawable.appicon)
+                .placeholder(R.drawable.img_placeholder)
+                .error(R.drawable.img_placeholder_error)
                 .into(imageView);
     }
 }

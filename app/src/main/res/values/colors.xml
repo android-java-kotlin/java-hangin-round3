@@ -7,4 +7,7 @@
     <color name="colorWhite">#FFF</color>
     <color name="colorWhiteTransparent">#9AFFFFFF</color>
     <color name="colorTransparent">#00FFFFFF</color>
+
+    <color name="colorFacebook">#3c5a99</color>
+    <color name="colorGoogle">#d34836</color>
 </resources>

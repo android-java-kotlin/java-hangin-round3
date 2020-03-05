@@ -1,25 +1,19 @@
-package com.m7amdelbana.haninround3.main;
+package com.m7amdelbana.haninround3.ui.main;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.m7amdelbana.haninround3.R;
-import com.m7amdelbana.haninround3.main.home.HomeFragment;
 
-public class MainActivity extends AppCompatActivity
-        // implements BottomNavigationView.OnNavigationItemSelectedListener
-{
+public class MainActivity extends AppCompatActivity {
+    // implements BottomNavigationView.OnNavigationItemSelectedListener
 
-    BottomNavigationView bottomNavigationView;
+    private BottomNavigationView bottomNavigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

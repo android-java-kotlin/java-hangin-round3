@@ -1,4 +1,4 @@
-package com.m7amdelbana.haninround3.main.home;
+package com.m7amdelbana.haninround3.ui.home;
 
 import android.view.LayoutInflater;
 import android.view.View;
