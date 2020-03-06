@@ -18,12 +18,6 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
-        Dialog dialog = new Dialog(this);
-        assert dialog.getWindow() != null;
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setContentView(R.layout.dialog_loading);
-        dialog.show();
     }
 
     @Override
