@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.util.Log;
 
 import com.m7amdelbana.haninround3.R;
 
@@ -18,10 +19,14 @@ public class LoadingDialog {
     }
 
     public void show() {
-        Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setContentView(R.layout.dialog_loading);
-        dialog.setCancelable(false);
-        dialog.show();
+        try {
+            Objects.requireNonNull(dialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            dialog.setContentView(R.layout.dialog_loading);
+            dialog.setCancelable(false);
+            dialog.show();
+        } catch (NullPointerException ex) {
+            Log.e("Error", Objects.requireNonNull(ex.getLocalizedMessage()));
+        }
     }
 
     public void hide() {
