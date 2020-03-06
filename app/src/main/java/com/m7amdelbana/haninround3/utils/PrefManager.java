@@ -6,16 +6,16 @@ import android.content.SharedPreferences;
 
 public class PrefManager {
 
-    private static final String USER_EXIST = "userExist";
+    private static final String USER_TOKEN = "userToken";
 
-    public static void setUserState(Activity activity, boolean isUserLogin) {
+    public static void setUserAccessToken(Activity activity, String accessToken) {
         SharedPreferences.Editor editor = activity.getPreferences(Context.MODE_PRIVATE).edit();
-        editor.putBoolean(USER_EXIST, isUserLogin);
+        editor.putString(USER_TOKEN, accessToken);
         editor.apply();
     }
 
-    public static boolean getUserState(Activity activity) {
+    public static String getUserAccessToken(Activity activity) {
         SharedPreferences preferences = activity.getPreferences(Context.MODE_PRIVATE);
-        return preferences.getBoolean(USER_EXIST, false);
+        return preferences.getString(USER_TOKEN, "");
     }
 }
