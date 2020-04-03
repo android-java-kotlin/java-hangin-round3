@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
         return view;
     }
 
-    void initUI(View view) {
+    private void initUI(View view) {
         recyclerView = view.findViewById(R.id.home_recyclerView);
     }
 
@@ -59,40 +59,25 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
         navController.navigate(R.id.action_homeFragment_to_placeDetailsFragment);
     }
 
-    void getPlace() {
+    private void getPlace() {
         PlacesService placesService = APIClient.getClient().create(PlacesService.class);
-
         placesService.getPlaces().enqueue(new Callback<List<Place>>() {
             @Override
             public void onResponse(@NotNull Call<List<Place>> call, @NotNull Response<List<Place>> response) {
                 if (response.isSuccessful()) {
-                    // List<Place> places = new ArrayList<>();
                     List<Place> places = response.body();
-
-                    // TODO: LinearLayoutManager
-                    // LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-                    // recyclerView.setLayoutManager(linearLayoutManager);
-
-                    // TODO: LinearLayoutManager
                     GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
                     recyclerView.setLayoutManager(gridLayoutManager);
-
-                    // TODO: StaggeredGridLayoutManager
-                    // StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-                    // recyclerView.setLayoutManager(staggeredGridLayoutManager);
-
                     PlaceAdapter placeAdapter = new PlaceAdapter(places, HomeFragment.this);
                     recyclerView.setAdapter(placeAdapter);
                 } else {
                     Toast.makeText(getActivity(), "Fail", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
             public void onFailure(@NotNull Call<List<Place>> call, @NotNull Throwable t) {
                 Toast.makeText(getActivity(), "Service Error: " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 }

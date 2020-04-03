@@ -33,13 +33,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<PlaceHolder> {
     public void onBindViewHolder(@NonNull PlaceHolder holder, int position) {
         Place place = places.get(position);
         holder.bindView(place);
-
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                placeItemClick.onItemClicked(position);
-            }
-        });
+        holder.itemView.setOnClickListener(v -> placeItemClick.onItemClicked(position));
     }
 
     @Override

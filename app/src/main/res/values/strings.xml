@@ -21,4 +21,6 @@
     <string name="phone_number">Phone number</string>
     <string name="confirm_password">Confirm password</string>
     <string name="create_account">Create account</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="permission_denied">Permission denied!</string>
 </resources>

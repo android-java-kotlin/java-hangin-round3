@@ -15,7 +15,6 @@ public class APIClient {
                     .baseUrl(APIConstants.BASE_URL)
                     .build();
         }
-
         return retrofit;
     }
 }

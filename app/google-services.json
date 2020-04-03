@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "872513898610",
+    "firebase_url": "https://hang-in-round3.firebaseio.com",
+    "project_id": "hang-in-round3",
+    "storage_bucket": "hang-in-round3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872513898610:android:bcb09e766777870ae71aeb",
+        "android_client_info": {
+          "package_name": "com.m7amdelbana.haninround3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872513898610-c9m2np00c9idkospbo6brgkin73o27sc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.m7amdelbana.haninround3",
+            "certificate_hash": "5583523f9252548ba1afec07467828c8d42c44ac"
+          }
+        },
+        {
+          "client_id": "872513898610-86i1f1c70k7im46rsj81u9afh8p9eq1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwlqw6w58wvHXcOmXcmDty70xGsp5-gG0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872513898610-86i1f1c70k7im46rsj81u9afh8p9eq1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

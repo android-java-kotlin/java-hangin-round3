@@ -23,7 +23,7 @@ public class PlaceHolder extends RecyclerView.ViewHolder {
         initView(itemView);
     }
 
-    void initView(View view) {
+    private void initView(View view) {
         imageView = view.findViewById(R.id.item_place_imageView);
         tvTitle = view.findViewById(R.id.item_place_title_textView);
         tvAddress = view.findViewById(R.id.item_place_address_textView);
@@ -31,12 +31,6 @@ public class PlaceHolder extends RecyclerView.ViewHolder {
     }
 
     void bindView(Place place) {
-//        Picasso.get()
-//                .load(place.getImage())
-//                .placeholder(R.drawable.appicon)
-//                .error(R.drawable.appicon)
-//                .into(imageView);
-
         place.loadImage(imageView);
         tvTitle.setText(place.getName());
         tvAddress.setText(place.getAddress());
