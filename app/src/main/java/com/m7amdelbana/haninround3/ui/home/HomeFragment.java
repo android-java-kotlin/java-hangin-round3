@@ -1,5 +1,6 @@
 package com.m7amdelbana.haninround3.ui.home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+import io.reactivex.Scheduler;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableSingleObserver;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,6 +36,7 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
 
     private RecyclerView recyclerView;
     private NavController navController;
+    private PlacesService placesService;
 
     public HomeFragment() {
 
@@ -45,13 +51,14 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
 
     private void initUI(View view) {
         recyclerView = view.findViewById(R.id.home_recyclerView);
+        placesService = APIClient.getClient().create(PlacesService.class);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         navController = Navigation.findNavController(view);
-        getPlace();
+        getPlacesUsingRx();
     }
 
     @Override
@@ -59,25 +66,43 @@ public class HomeFragment extends Fragment implements PlaceItemClick {
         navController.navigate(R.id.action_homeFragment_to_placeDetailsFragment);
     }
 
-    private void getPlace() {
-        PlacesService placesService = APIClient.getClient().create(PlacesService.class);
+    private void getPlaces() {
         placesService.getPlaces().enqueue(new Callback<List<Place>>() {
             @Override
             public void onResponse(@NotNull Call<List<Place>> call, @NotNull Response<List<Place>> response) {
                 if (response.isSuccessful()) {
                     List<Place> places = response.body();
-                    GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-                    recyclerView.setLayoutManager(gridLayoutManager);
-                    PlaceAdapter placeAdapter = new PlaceAdapter(places, HomeFragment.this);
-                    recyclerView.setAdapter(placeAdapter);
+                    setupData(places);
                 } else {
                     Toast.makeText(getActivity(), "Fail", Toast.LENGTH_SHORT).show();
                 }
             }
+
             @Override
             public void onFailure(@NotNull Call<List<Place>> call, @NotNull Throwable t) {
                 Toast.makeText(getActivity(), "Service Error: " + t.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @SuppressLint("CheckResult")
+    private void getPlacesUsingRx() {
+        placesService.getPlacesUsingRx().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableSingleObserver<List<Place>>() {
+                    @Override
+                    public void onSuccess(List<Place> places) {
+                        setupData(places);
+                    }
+                    @Override
+                    public void onError(Throwable e) {
+                        Toast.makeText(getActivity(), "Service Error: " + e.getLocalizedMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    private void setupData(List<Place> places) {
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        PlaceAdapter placeAdapter = new PlaceAdapter(places, HomeFragment.this);
+        recyclerView.setAdapter(placeAdapter);
     }
 }
